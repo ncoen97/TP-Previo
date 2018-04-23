@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Censo";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label class="col-md-2 control-label">Seleccionar Pais</label>
+            <div class="col-md-10">
+                @Html.DropDownList("ListaDePaises", new SelectList(ViewBag.ListaDePaises), new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label class="col-md-2 control-label">Seleccionar Estado</label>
+            <div class="col-md-10">
+                @Html.DropDownList("ListaDeEstados", new SelectList(ViewBag.ListaDeEstados), new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+}

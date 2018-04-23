@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,9 +21,26 @@ namespace TP_Previo_2.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        [Authorize]
+        public ActionResult Censo()
         {
-            ViewBag.Message = "Your contact page.";
+            List<string> ListaDeEstados = new List<string>();
+            List<string> ListaDePaises = new List<string>();
+            CultureInfo[] CInfoList = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            foreach (CultureInfo CInfo in CInfoList)
+            {
+                RegionInfo R = new RegionInfo(CInfo.LCID);
+                if (!(ListaDePaises.Contains(R.EnglishName)))
+                {
+                    ListaDePaises.Add(R.EnglishName);
+                }
+            }
+
+            ListaDePaises.Sort();
+            ViewBag.ListaDePaises = ListaDePaises;
+            ViewBag.ListaDeEstados = ListaDeEstados;
+
+            ViewBag.Message = "Ingrese su lugar de residencia";
 
             return View();
         }

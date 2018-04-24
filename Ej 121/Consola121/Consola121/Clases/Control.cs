@@ -24,7 +24,7 @@ namespace Consola121.Clases
             else
             { 
                 cantidad = cliente.GetCuentas().Where(x => x.GetSaldo() > saldo).ToList().Count; //modularidad? que es eso? 
-                Console.WriteLine("Lantidad de cuentas con un saldo mayor a {0} es igual {1}:", saldo, cantidad);
+                Console.WriteLine("La cantidad de cuentas con un saldo mayor a {0} es igual {1}:", saldo, cantidad);
             }
         }
 

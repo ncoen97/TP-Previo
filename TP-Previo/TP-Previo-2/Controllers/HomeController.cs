@@ -21,7 +21,7 @@ namespace TP_Previo_2.Controllers
             return View();
         }
 
-        [Authorize]
+        
         public ActionResult Censo()
         {
             List<string> ListaDeEstados = new List<string>();

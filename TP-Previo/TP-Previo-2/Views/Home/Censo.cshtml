@@ -1,8 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Censo";
+                /**/
+
+                ViewBag.Title = "Censo";
 }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
+
+<p id ="reply"> </p>
+
+
+
+<script>
+    ($document).ready(function () {
+        $("button").click(function () {
+            $.get("https://api.mercadolibre.com/classified_locations/countries", function (response) {
+                //response
+                $("#reply").text(response.name);
+                console.log("holi");
+            });
+
+
+        });
+    });
+
+</script>
 
 @using (Html.BeginForm())
 {
@@ -13,6 +34,8 @@
         <div class="form-group">
             <label class="col-md-2 control-label">Seleccionar Pais</label>
             <div class="col-md-10">
+
+
                 @Html.DropDownList("ListaDePaises", new SelectList(ViewBag.ListaDePaises), new { @class = "form-control" })
             </div>
         </div>
@@ -29,7 +52,14 @@
             <label class="col-md-2 control-label">Seleccionar Estado</label>
             <div class="col-md-10">
                 @Html.DropDownList("ListaDeEstados", new SelectList(ViewBag.ListaDeEstados), new { @class = "form-control" })
+
             </div>
         </div>
     </div>
 }
+
+<button>Guardar</button>
+<script>
+
+
+</script>

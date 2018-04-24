@@ -53,16 +53,16 @@ namespace TP_Previo_2
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
+            /*
+            app.UseFacebookAuthentication(
+               appId: "433369967086981",
+               appSecret: "66ca185f3a721d6091a94c9d12afc8e7");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "748930755840-rn79ti032sg962k8h0qv7ard9v06ljtr.apps.googleusercontent.com",
+                ClientSecret = "PlDdUuQazwtwdr1xCrp6ui2q"
+            });*/
         }
     }
 }

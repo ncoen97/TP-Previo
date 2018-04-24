@@ -1,0 +1,7 @@
+C:\Users\Paniaton\Desktop\Ej 121\Consola121\Consola121\obj\Debug\Consola121.csprojResolveAssemblyReference.cache
+C:\Users\Paniaton\Desktop\Ej 121\Consola121\Consola121\obj\Debug\Consola121.csproj.CoreCompileInputs.cache
+C:\Users\Paniaton\Desktop\Ej 121\Consola121\Consola121\bin\Debug\Consola121.exe.config
+C:\Users\Paniaton\Desktop\Ej 121\Consola121\Consola121\bin\Debug\Consola121.exe
+C:\Users\Paniaton\Desktop\Ej 121\Consola121\Consola121\bin\Debug\Consola121.pdb
+C:\Users\Paniaton\Desktop\Ej 121\Consola121\Consola121\obj\Debug\Consola121.exe
+C:\Users\Paniaton\Desktop\Ej 121\Consola121\Consola121\obj\Debug\Consola121.pdb

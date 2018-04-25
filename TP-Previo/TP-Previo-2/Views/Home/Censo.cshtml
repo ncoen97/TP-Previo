@@ -1,29 +1,14 @@
 ﻿@{
-                /**/
-
-                ViewBag.Title = "Censo";
+    ViewBag.Title = "Censo";
 }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
-<p id ="reply"> </p>
+@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
 
-
-
-<script>
-    ($document).ready(function () {
-        $("button").click(function () {
-            $.get("https://api.mercadolibre.com/classified_locations/countries", function (response) {
-                //response
-                $("#reply").text(response.name);
-                console.log("holi");
-            });
-
-
-        });
-    });
-
-</script>
+<div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
 
 @using (Html.BeginForm())
 {
@@ -32,11 +17,9 @@
     <div class="form-horizontal">
         <hr />
         <div class="form-group">
-            <label class="col-md-2 control-label">Seleccionar Pais</label>
+            <label for="inputAuthor" class="col-md-2 control-label">Seleccionar Pais</label>
             <div class="col-md-10">
-
-
-                @Html.DropDownList("ListaDePaises", new SelectList(ViewBag.ListaDePaises), new { @class = "form-control" })
+                <select data-bind="options:authors, optionsText: 'Name', value: newBook.Author"></select>
             </div>
         </div>
     </div>
@@ -49,17 +32,15 @@
     <div class="form-horizontal">
         <hr />
         <div class="form-group">
-            <label class="col-md-2 control-label">Seleccionar Estado</label>
+            <label for="inputAuthor" class="col-md-2 control-label">Seleccionar Estado</label>
             <div class="col-md-10">
-                @Html.DropDownList("ListaDeEstados", new SelectList(ViewBag.ListaDeEstados), new { @class = "form-control" })
-
+                <select data-bind="options:authors, optionsText: 'Name', value: newBook.Author"></select>
             </div>
         </div>
     </div>
 }
 
 <button>Guardar</button>
+
 <script>
-
-
 </script>

@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TP_Previo_2.Helpers;
 
 namespace TP_Previo_2.Controllers
 {
@@ -21,28 +22,26 @@ namespace TP_Previo_2.Controllers
             return View();
         }
 
+        public List<SelectListItem> obtenerPaises()
+        {
+            ApiHelper apiHelper = new ApiHelper();
+            List<string> ListaDePaises = new List<string>();
+            ListaDePaises = apiHelper.obtenerPaises();
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            selectListItems = ListaDePaises.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
+            return selectListItems;
+        }
         
         public ActionResult Censo()
         {
             List<string> ListaDeEstados = new List<string>();
-            List<string> ListaDePaises = new List<string>();
-            CultureInfo[] CInfoList = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
-            foreach (CultureInfo CInfo in CInfoList)
-            {
-                RegionInfo R = new RegionInfo(CInfo.LCID);
-                if (!(ListaDePaises.Contains(R.EnglishName)))
-                {
-                    ListaDePaises.Add(R.EnglishName);
-                }
-            }
-
-            ListaDePaises.Sort();
-            ViewBag.ListaDePaises = ListaDePaises;
+            ViewBag.ListaDePaises = obtenerPaises();
             ViewBag.ListaDeEstados = ListaDeEstados;
 
             ViewBag.Message = "Ingrese su lugar de residencia";
 
             return View();
         }
+        
     }
 }

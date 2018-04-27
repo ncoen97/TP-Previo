@@ -1,44 +1,11 @@
 ﻿@{
     ViewBag.Title = "Censo";
 }
+
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
-@section scripts {
-    @Scripts.Render("~/bundles/app")
-}
-
-<div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <hr />
-        <div class="form-group">
-            <label for="inputAuthor" class="col-md-2 control-label">Seleccionar Pais</label>
-            <div class="col-md-10">
-                <select data-bind="options:authors, optionsText: 'Name', value: newBook.Author"></select>
-            </div>
-        </div>
-    </div>
-}
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <hr />
-        <div class="form-group">
-            <label for="inputAuthor" class="col-md-2 control-label">Seleccionar Estado</label>
-            <div class="col-md-10">
-                <select data-bind="options:authors, optionsText: 'Name', value: newBook.Author"></select>
-            </div>
-        </div>
-    </div>
-}
+@Html.DropDownList("miDropDownList", (List<SelectListItem>)ViewBag.ListaDePaises)
 
 <button>Guardar</button>
 

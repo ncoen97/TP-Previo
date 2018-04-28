@@ -217,6 +217,10 @@
     <Compile Include="Migrations\201804230045292_AgreguePaisYEstado.Designer.cs">
       <DependentUpon>201804230045292_AgreguePaisYEstado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804282340475_asd.cs" />
+    <Compile Include="Migrations\201804282340475_asd.Designer.cs">
+      <DependentUpon>201804282340475_asd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -310,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804230045292_AgreguePaisYEstado.resx">
       <DependentUpon>201804230045292_AgreguePaisYEstado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804282340475_asd.resx">
+      <DependentUpon>201804282340475_asd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

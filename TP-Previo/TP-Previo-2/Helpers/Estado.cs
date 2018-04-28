@@ -16,5 +16,9 @@ namespace TP_Previo_2.Helpers
         string time_zone;
         GeoInformation geo_information;
         Pais[] states;
+        public string GetName()
+        {
+            return name;
+        }
     }
 }

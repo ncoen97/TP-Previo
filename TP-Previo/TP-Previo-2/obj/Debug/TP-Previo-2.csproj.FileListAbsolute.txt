@@ -285,3 +285,4 @@ C:\Users\User\Desktop\Diseño\TP\TP-Previo\TP-Previo\TP-Previo-2\bin\System.Web.
 C:\Users\User\Desktop\Diseño\TP\TP-Previo\TP-Previo\TP-Previo-2\bin\System.Net.Http.Formatting.xml
 C:\Users\User\Desktop\Diseño\TP\TP-Previo\TP-Previo\TP-Previo-2\bin\System.Web.Http.xml
 C:\Users\User\Desktop\Diseño\TP\TP-Previo\TP-Previo\TP-Previo-2\bin\System.Web.Http.WebHost.xml
+C:\Users\User\Desktop\Diseño\TP\TP-Previo\TP-Previo\TP-Previo-2\obj\Debug\TP_Previo_2.Migrations.asd.resources

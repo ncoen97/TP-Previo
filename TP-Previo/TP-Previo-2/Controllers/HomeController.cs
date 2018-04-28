@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,9 +25,18 @@ namespace TP_Previo_2.Controllers
         {
             ApiHelper apiHelper = new ApiHelper();
             List<string> ListaDePaises = new List<string>();
-            ListaDePaises = apiHelper.obtenerPaises();
+            ListaDePaises = apiHelper.ObtenerPaises();
             List<SelectListItem> selectListItems = new List<SelectListItem>();
             selectListItems = ListaDePaises.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
+            return selectListItems;
+        }
+        public List<SelectListItem> obtenerEstados(int id)
+        {
+            ApiHelper apiHelper = new ApiHelper();
+            List<string> ListaDeEstados = new List<string>();
+            ListaDeEstados = apiHelper.ObtenerEstados(id);
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            selectListItems = ListaDeEstados.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
             return selectListItems;
         }
         

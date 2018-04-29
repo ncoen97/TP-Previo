@@ -78,6 +78,12 @@ namespace TP_Previo_2.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+        [Required]
+        [Display(Name = "Pais")]
+        public string Pais { get; set; }
+        [Required]
+        [Display(Name = "Estado")]
+        public string Estado { get; set; }
     }
 
     public class ResetPasswordViewModel

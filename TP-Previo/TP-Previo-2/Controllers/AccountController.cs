@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using TP_Previo_2.Helpers;
 using TP_Previo_2.Models;
 
 namespace TP_Previo_2.Controllers
@@ -133,7 +135,25 @@ namespace TP_Previo_2.Controllers
                     return View(model);
             }
         }
-
+        //Listas
+        public List<SelectListItem> obtenerPaises()
+        {
+            ApiHelper apiHelper = new ApiHelper();
+            List<string> ListaDePaises = new List<string>();
+            ListaDePaises = apiHelper.ObtenerPaises();
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            selectListItems = ListaDePaises.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
+            return selectListItems;
+        }
+        public List<SelectListItem> obtenerEstados(string id)
+        {
+            ApiHelper apiHelper = new ApiHelper();
+            List<string> ListaDeEstados = new List<string>();
+            ListaDeEstados = apiHelper.ObtenerEstados(id);
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            selectListItems = ListaDeEstados.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
+            return selectListItems;
+        }
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -141,7 +161,6 @@ namespace TP_Previo_2.Controllers
         {
             return View();
         }
-
 
         //
         // POST: /Account/Register
@@ -152,7 +171,7 @@ namespace TP_Previo_2.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Pais = model.Pais, Estado = model.Estado};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

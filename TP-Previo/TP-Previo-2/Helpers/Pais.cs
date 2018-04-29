@@ -7,10 +7,10 @@ namespace TP_Previo_2.Helpers
 {
     public class Pais
     {
-        string id;
-        string name;
-        string locale;
-        string currency_id;
+        string id{ get; set; }
+        string name{ get; set; }
+        string locale{ get; set; }
+        string currency_id{ get; set; }
         public string GetName(){
             return name;
         }

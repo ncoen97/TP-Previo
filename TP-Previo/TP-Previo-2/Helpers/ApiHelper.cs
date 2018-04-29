@@ -13,21 +13,21 @@ namespace TP_Previo_2.Helpers
         {
             string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries";
             var json = new WebClient().DownloadString(sUrlRequest);
-            //        List<Pais> listaPaises = JsonConvert.DeserializeObject<List<Pais>>(json);
-            //        List<Pais> listaPaises = JsonConvert.DeserializeObject<IEnumerable<Pais>>(json).ToList();
-            //        List<string> paises = filtrarPaises(listaPaises);
-            List<string> paises = new List<string>(new string[] { "Arg", "Chile", "Uru" });
+            List<Pais> listaPaises = JsonConvert.DeserializeObject<IEnumerable<Pais>>(json).ToList();
+            List<string> paises = filtrarPaises(listaPaises);
+            //List<string> paises = new List<string>(new string[] { "Arg", "Chile", "Uru" });
             return paises;
         }
         public List<string> filtrarPaises(List<Pais> listaPaises)
         {
-            List<string> lista = new List<string>();
+            List<string> lista = new List<string>(listaPaises.Count);
             for (int i = 0; i < listaPaises.Count; i++)
             {
-                lista[i] = listaPaises[i].GetName();
+                lista.Add(listaPaises[i].GetName());
             }
             return lista;
         }
+        
         public List<string> ObtenerEstados(string id)
         {
             string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries/" + id;

@@ -54,7 +54,7 @@ namespace TP_Previo_2.Controllers
         }
         [Authorize]
         [HttpPost]
-        public void Guardar(SubmitViewModel model)
+        public ActionResult Guardar(SubmitViewModel model)
         {
             model.PaisSeleccionado = ViewBag.Pais;
             model.EstadoSeleccionado = ViewBag.Estado;

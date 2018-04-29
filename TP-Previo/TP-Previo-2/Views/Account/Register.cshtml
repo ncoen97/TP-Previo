@@ -34,13 +34,13 @@
 
     //"Ingrese su lugar de residencia"
     <h4>@ViewBag.Message</h4>
-    <h3>
+    <h4>
         @Html.DropDownList("Pais", (List<SelectListItem>)ViewBag.ListaDePaises)
-    </h3>
+    </h4>
 
-    <h3>
+    <h4>
         @Html.DropDownList("Estado", (List<SelectListItem>)ViewBag.ListaDeEstados)
-    </h3>
+    </h4>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Registrarse" />

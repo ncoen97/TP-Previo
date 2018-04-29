@@ -205,10 +205,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ApiHelper.cs" />
-    <Compile Include="Helpers\Estado.cs" />
-    <Compile Include="Helpers\GeoInformation.cs" />
-    <Compile Include="Helpers\Location.cs" />
+    <Compile Include="Helpers\PaisUnitario.cs" />
     <Compile Include="Helpers\Pais.cs" />
+    <Compile Include="Helpers\State.cs" />
     <Compile Include="Migrations\201804222026342_InitialCreate.cs" />
     <Compile Include="Migrations\201804222026342_InitialCreate.Designer.cs">
       <DependentUpon>201804222026342_InitialCreate.cs</DependentUpon>

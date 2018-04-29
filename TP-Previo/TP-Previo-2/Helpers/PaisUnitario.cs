@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TP_Previo_2.Helpers
 {
-    public class Estado
+    public class PaisUnitario
     {
         [JsonProperty]
         string id;
@@ -17,15 +17,19 @@ namespace TP_Previo_2.Helpers
         [JsonProperty]
         string currency_id;
         [JsonProperty]
-        char decimal_separator;
+        string decimal_separator;
         [JsonProperty]
-        char thousands_separator;
+        string thousands_separator;
         [JsonProperty]
         string time_zone;
+        [JsonIgnore]
+        string geo_information;
         [JsonProperty]
-        GeoInformation geo_information;
-        [JsonProperty]
-        Pais[] states;
+        State[] states;
+        public State[] getStates()
+        {
+            return states;
+        }
         public string GetName()
         {
             return name;

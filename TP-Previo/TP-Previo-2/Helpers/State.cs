@@ -6,11 +6,15 @@ using System.Web;
 
 namespace TP_Previo_2.Helpers
 {
-    public class Location
+    public class State
     {
         [JsonProperty]
-        float latitude;
+        string id;
         [JsonProperty]
-        float longitude;
+        string name;
+        public string getName()
+        {
+            return name;
+        }
     }
 }

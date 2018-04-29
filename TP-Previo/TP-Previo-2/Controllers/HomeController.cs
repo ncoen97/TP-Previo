@@ -30,7 +30,7 @@ namespace TP_Previo_2.Controllers
             selectListItems = ListaDePaises.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
             return selectListItems;
         }
-        public List<SelectListItem> obtenerEstados(int id)
+        public List<SelectListItem> obtenerEstados(string id)
         {
             ApiHelper apiHelper = new ApiHelper();
             List<string> ListaDeEstados = new List<string>();
@@ -39,12 +39,13 @@ namespace TP_Previo_2.Controllers
             selectListItems = ListaDeEstados.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
             return selectListItems;
         }
-        
+        [Authorize]
         public ActionResult Censo()
         {
+            string id = "AR";
             List<string> ListaDeEstados = new List<string>();
             ViewBag.ListaDePaises = obtenerPaises();
-            ViewBag.ListaDeEstados = ListaDeEstados;
+            ViewBag.ListaDeEstados = obtenerEstados(id);
 
             ViewBag.Message = "Ingrese su lugar de residencia";
 

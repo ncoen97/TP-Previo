@@ -108,4 +108,5 @@ namespace TP_Previo_2.Models
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
     }
+
 }

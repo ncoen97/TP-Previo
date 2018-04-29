@@ -142,6 +142,7 @@ namespace TP_Previo_2.Controllers
             return View();
         }
 
+
         //
         // POST: /Account/Register
         [HttpPost]

@@ -244,6 +244,7 @@ namespace TP_Previo_2.Controllers
             return View(model);
         }
 
+
         //
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()

@@ -13,31 +13,35 @@ namespace TP_Previo_2.Helpers
         {
             string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries";
             var json = new WebClient().DownloadString(sUrlRequest);
-            List<Pais> listaPaises = JsonConvert.DeserializeObject<List<Pais>>(json);
-            List<string> paises = filtrarPaises(listaPaises);
+            //        List<Pais> listaPaises = JsonConvert.DeserializeObject<List<Pais>>(json);
+            //        List<Pais> listaPaises = JsonConvert.DeserializeObject<IEnumerable<Pais>>(json).ToList();
+            //        List<string> paises = filtrarPaises(listaPaises);
+            List<string> paises = new List<string>(new string[] { "arg", "chile", "uru" });
             return paises;
         }
         public List<string> filtrarPaises(List<Pais> listaPaises)
         {
             List<string> lista = new List<string>();
-            for (int i = 1; i < listaPaises.Count; i++)
+            for (int i = 0; i < listaPaises.Count; i++)
             {
                 lista[i] = listaPaises[i].GetName();
             }
             return lista;
         }
-        public List<string> ObtenerEstados(int id)
+        public List<string> ObtenerEstados(string id)
         {
-            string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries/"+id;
+            string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries/" + id;
             var json = new WebClient().DownloadString(sUrlRequest);
-            List<Estado> listaEstados = JsonConvert.DeserializeObject<List<Estado>>(json);
-            List<string> estados = filtrarEstados(listaEstados);
+            //           List<Estado> listaEstados = JsonConvert.DeserializeObject<List<Estado>>(json);
+            //  List<Pais> listaEstados = JsonConvert.DeserializeObject<IEnumerable<Pais>>(json).ToList();
+            //   List<string> estados = filtrarPaises(listaEstados);
+            List<string> estados = new List<string>(new string[] { "bsas", "caba", "cordoba" });
             return estados;
         }
         public List<string> filtrarEstados(List<Estado> listaEstados)
         {
             List<string> lista = new List<string>();
-            for (int i = 1; i < listaEstados.Count; i++)
+            for (int i = 0; i < listaEstados.Count; i++)
             {
                 lista[i] = listaEstados[i].GetName();
             }

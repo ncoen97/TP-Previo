@@ -16,7 +16,7 @@ namespace TP_Previo_2.Helpers
             //        List<Pais> listaPaises = JsonConvert.DeserializeObject<List<Pais>>(json);
             //        List<Pais> listaPaises = JsonConvert.DeserializeObject<IEnumerable<Pais>>(json).ToList();
             //        List<string> paises = filtrarPaises(listaPaises);
-            List<string> paises = new List<string>(new string[] { "arg", "chile", "uru" });
+            List<string> paises = new List<string>(new string[] { "Arg", "Chile", "Uru" });
             return paises;
         }
         public List<string> filtrarPaises(List<Pais> listaPaises)
@@ -35,7 +35,7 @@ namespace TP_Previo_2.Helpers
             //           List<Estado> listaEstados = JsonConvert.DeserializeObject<List<Estado>>(json);
             //  List<Pais> listaEstados = JsonConvert.DeserializeObject<IEnumerable<Pais>>(json).ToList();
             //   List<string> estados = filtrarPaises(listaEstados);
-            List<string> estados = new List<string>(new string[] { "bsas", "caba", "cordoba" });
+            List<string> estados = new List<string>(new string[] { "BsAs", "Caba", "Cordoba" });
             return estados;
         }
         public List<string> filtrarEstados(List<Estado> listaEstados)

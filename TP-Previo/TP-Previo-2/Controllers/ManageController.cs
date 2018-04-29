@@ -213,6 +213,7 @@ namespace TP_Previo_2.Controllers
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
 
+
         //
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()

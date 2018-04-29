@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TP_Previo_2.Helpers;
+using TP_Previo_2.Models;
 
 namespace TP_Previo_2.Controllers
 {
@@ -51,6 +52,13 @@ namespace TP_Previo_2.Controllers
 
             return View();
         }
-        
+        [Authorize]
+        [HttpPost]
+        public void Guardar(SubmitViewModel model)
+        {
+            model.Pais = ViewBag.Pais;
+            model.Estado = ViewBag.Estado;
+        }
+
     }
 }

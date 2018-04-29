@@ -10,11 +10,11 @@
 @using (Html.BeginForm("Guardar", "Home", FormMethod.Post))
 {
     <h4>
-        @Html.DropDownListFor(model => model.Pais, ViewBag.ListaDePaises, "--select--", new { @class = "form-control" })
+        @Html.DropDownList("PaisSeleccionado", (List<SelectListItem>)ViewBag.ListaDePaises)
     </h4>
 
     <h4>
-        @Html.DropDownListFor(model => model.Estado, ViewBag.ListaDeEstados, "--select--", new { @class = "form-control" })
+        @Html.DropDownList("EstadoSeleccionado", (List<SelectListItem>)ViewBag.ListaDeEstados)
     </h4>
 
     <h4>

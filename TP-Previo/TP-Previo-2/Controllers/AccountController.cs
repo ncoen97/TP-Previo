@@ -159,8 +159,16 @@ namespace TP_Previo_2.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            string id = "AR";
+            List<string> ListaDeEstados = new List<string>();
+            ViewBag.ListaDePaises = obtenerPaises();
+            ViewBag.ListaDeEstados = obtenerEstados(id);
+
+            ViewBag.Message = "Ingrese su lugar de residencia";
+
             return View();
         }
+
 
         //
         // POST: /Account/Register
@@ -171,7 +179,7 @@ namespace TP_Previo_2.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Pais = model.Pais, Estado = model.Estado};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Pais = model.Pais, Estado = model.Estado };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -56,8 +56,10 @@ namespace TP_Previo_2.Controllers
         [HttpPost]
         public void Guardar(SubmitViewModel model)
         {
-            model.Pais = ViewBag.Pais;
-            model.Estado = ViewBag.Estado;
+            model.PaisSeleccionado = ViewBag.Pais;
+            model.EstadoSeleccionado = ViewBag.Estado;
+
+            return View();
         }
 
     }

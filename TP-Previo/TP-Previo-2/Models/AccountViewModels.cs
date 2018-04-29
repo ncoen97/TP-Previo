@@ -80,7 +80,7 @@ namespace TP_Previo_2.Models
         public string ConfirmPassword { get; set; }
         [Required]
         [Display(Name = "Pais")]
-        public string Pais { get; set; }
+        public string  Pais { get; set; }
         [Required]
         [Display(Name = "Estado")]
         public string Estado { get; set; }

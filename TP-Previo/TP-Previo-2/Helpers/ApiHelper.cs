@@ -33,10 +33,10 @@ namespace TP_Previo_2.Helpers
         {
             string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries/" + id;
             var json = new WebClient().DownloadString(sUrlRequest);
-            List<Estado> listaEstados = JsonConvert.DeserializeObject<List<Estado>>(json);
+       //     List<Estado> listaEstados = JsonConvert.DeserializeObject<List<Estado>>(json);
       //      List<Estado> listaEstados = JsonConvert.DeserializeObject<IEnumerable<Estado>>(json).ToList();
-            List<string> estados = filtrarEstados(listaEstados);
-       //   List<string> estados = new List<string>(new string[] { "BsAs", "Caba", "Cordoba" });
+    //        List<string> estados = filtrarEstados(listaEstados);
+         List<string> estados = new List<string>(new string[] { "BsAs", "Caba", "Cordoba" });
             return estados;
         }
         public List<string> filtrarEstados(List<Estado> listaEstados)

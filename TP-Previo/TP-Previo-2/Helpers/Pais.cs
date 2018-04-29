@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,11 +8,16 @@ namespace TP_Previo_2.Helpers
 {
     public class Pais
     {
-        string id{ get; set; }
-        string name{ get; set; }
-        string locale{ get; set; }
-        string currency_id{ get; set; }
-        public string GetName(){
+        [JsonProperty]
+        string id { get; set; }
+        [JsonProperty]
+        string name { get; set; }
+        [JsonProperty]
+        string locale { get; set; }
+        [JsonProperty]
+        string currency_id { get; set; }
+        public string GetName()
+        {
             return name;
         }
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -56,9 +58,13 @@ namespace TP_Previo_2.Controllers
         [HttpPost]
         public ActionResult Guardar(SubmitViewModel model)
         {
-
-            model.PaisSeleccionado = ViewBag.Pais;
-            model.EstadoSeleccionado = ViewBag.Estado;
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            string mail = user.Email;
+            BaseDeDatos db = new BaseDeDatos();
+            string sentencia = "UPDATE AspNetUsers SET Pais = " + model.PaisSeleccionado + ", Estado = " + model.EstadoSeleccionado + " WHERE Email = " + user.Email;
+            db.ExecQuery(sentencia);
+    //        model.PaisSeleccionado = ViewBag.Pais;
+    //        model.EstadoSeleccionado = ViewBag.Estado;
 
             return View();
         }

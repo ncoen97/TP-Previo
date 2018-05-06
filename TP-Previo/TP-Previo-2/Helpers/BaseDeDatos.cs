@@ -16,7 +16,7 @@ namespace TP_Previo_2.Helpers
         // Get Conexion
         private void getConexion()
         {
-            string connStr = "Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Desktop\Diseño\TP\TP-Previo\TP-Previo\TP-Previo-2\App_Data\aspnet-TP-Previo-2-20180422024037.mdf;Initial Catalog=aspnet-TP-Previo-2-20180422024037;Integrated Security=True";
+            string connStr = "Data Source=(LocalDb)/MSSQLLocalDB;AttachDbFilename=C:/Users/User/Desktop/Diseño/TP/TP-Previo/TP-Previo/TP-Previo-2/App_Data/aspnet-TP-Previo-2-20180422024037.mdf;Initial Catalog=aspnet-TP-Previo-2-20180422024037;Integrated Security=True";
             conexion = new SqlConnection(connStr);
             try
             {

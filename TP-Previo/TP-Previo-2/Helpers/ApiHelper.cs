@@ -15,11 +15,11 @@ namespace TP_Previo_2.Helpers
             var json = new WebClient().DownloadString(sUrlRequest);
             List<Pais> listaPaises = JsonConvert.DeserializeObject<List<Pais>>(json);
          //   List<Pais> listaPaises = JsonConvert.DeserializeObject<IEnumerable<Pais>>(json).ToList();
-            List<string> paises = filtrarPaises(listaPaises);
+            List<string> paises = FiltrarPaises(listaPaises);
             //List<string> paises = new List<string>(new string[] { "Arg", "Chile", "Uru" });
             return paises;
         }
-        public List<string> filtrarPaises(List<Pais> listaPaises)
+        public List<string> FiltrarPaises(List<Pais> listaPaises)
         {
             List<string> lista = new List<string>(listaPaises.Count);
             for (int i = 0; i < listaPaises.Count; i++)
@@ -34,11 +34,11 @@ namespace TP_Previo_2.Helpers
             string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries/" + id;
             var json = new WebClient().DownloadString(sUrlRequest);
             PaisUnitario Pais = JsonConvert.DeserializeObject<PaisUnitario>(json);
-            List<string> estados = filtrarEstados(Pais);
+            List<string> estados = FiltrarEstados(Pais);
       //   List<string> estados = new List<string>(new string[] { "BsAs", "Caba", "Cordoba" });
             return estados;
         }
-        public List<string> filtrarEstados(PaisUnitario Pais)
+        public List<string> FiltrarEstados(PaisUnitario Pais)
         {
 
             List<string> lista = new List<string>();

@@ -136,7 +136,7 @@ namespace TP_Previo_2.Controllers
             }
         }
         //Listas
-        public List<SelectListItem> obtenerPaises()
+        public List<SelectListItem> ObtenerPaises()
         {
             ApiHelper apiHelper = new ApiHelper();
             List<string> ListaDePaises = new List<string>();
@@ -145,7 +145,7 @@ namespace TP_Previo_2.Controllers
             selectListItems = ListaDePaises.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
             return selectListItems;
         }
-        public List<SelectListItem> obtenerEstados(string id)
+        public List<SelectListItem> ObtenerEstados(string id)
         {
             ApiHelper apiHelper = new ApiHelper();
             List<string> ListaDeEstados = new List<string>();
@@ -161,8 +161,8 @@ namespace TP_Previo_2.Controllers
         {
             string id = "AR";
             List<string> ListaDeEstados = new List<string>();
-            ViewBag.ListaDePaises = obtenerPaises();
-            ViewBag.ListaDeEstados = obtenerEstados(id);
+            ViewBag.ListaDePaises = ObtenerPaises();
+            ViewBag.ListaDeEstados = ObtenerEstados(id);
 
             ViewBag.Message = "Ingrese su lugar de residencia";
 

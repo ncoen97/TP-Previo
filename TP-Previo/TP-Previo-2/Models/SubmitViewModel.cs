@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 
 namespace TP_Previo_2.Models
@@ -14,5 +15,10 @@ namespace TP_Previo_2.Models
         [Required]
         [Display(Name = "EstadoSeleccionado")]
         public string EstadoSeleccionado { get; set; }
+
+        /*public void insertarPais(string pais)
+        {
+            AspNetUsers;
+        }*/
     }
 }

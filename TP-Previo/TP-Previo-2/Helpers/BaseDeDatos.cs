@@ -14,9 +14,9 @@ namespace TP_Previo_2.Helpers
         public List<string> cadenasExec;
 
         // Get Conexion
-        private void getConexion()
+        private void GetConexion()
         {
-            string connStr = "Data Source=(LocalDb)/MSSQLLocalDB;AttachDbFilename=C:/Users/User/Desktop/Diseño/TP/TP-Previo/TP-Previo/TP-Previo-2/App_Data/aspnet-TP-Previo-2-20180422024037.mdf;Initial Catalog=aspnet-TP-Previo-2-20180422024037;Integrated Security=True";
+            string connStr = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=aspnet-TP-Previo-2-20180422024037;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             conexion = new SqlConnection(connStr);
             try
             {
@@ -33,8 +33,9 @@ namespace TP_Previo_2.Helpers
         public void ExecQuery(string sql)
         {
             if (conexion == null)
-                this.getConexion();
-
+            {
+                this.GetConexion();
+            }
             try
             {
                 SqlCommand myCommand = new SqlCommand(sql, this.conexion);
@@ -51,7 +52,7 @@ namespace TP_Previo_2.Helpers
         public SqlDataReader ExecQuerySelect(string sql)
         {
             if (conexion == null)
-                this.getConexion();
+                this.GetConexion();
 
             try
             {

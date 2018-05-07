@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using TP_Previo_2.Helpers;
 using TP_Previo_2.Models;
+using System.Data.SqlClient;
 
 namespace TP_Previo_2.Controllers
 {
@@ -24,7 +25,7 @@ namespace TP_Previo_2.Controllers
             return View();
         }
 
-        public List<SelectListItem> obtenerPaises()
+        public List<SelectListItem> ObtenerPaises()
         {
             ApiHelper apiHelper = new ApiHelper();
             List<string> ListaDePaises = new List<string>();
@@ -33,7 +34,7 @@ namespace TP_Previo_2.Controllers
             selectListItems = ListaDePaises.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
             return selectListItems;
         }
-        public List<SelectListItem> obtenerEstados(string id)
+        public List<SelectListItem> ObtenerEstados(string id)
         {
             ApiHelper apiHelper = new ApiHelper();
             List<string> ListaDeEstados = new List<string>();
@@ -43,31 +44,32 @@ namespace TP_Previo_2.Controllers
             return selectListItems;
         }
         [Authorize]
+        [HttpGet]
         public ActionResult Censo()
         {
             string id = "AR";
             List<string> ListaDeEstados = new List<string>();
-            ViewBag.ListaDePaises = obtenerPaises();
-            ViewBag.ListaDeEstados = obtenerEstados(id);
+            ViewBag.ListaDePaises = ObtenerPaises();
+            ViewBag.ListaDeEstados = ObtenerEstados(id);
 
             ViewBag.Message = "Ingrese su lugar de residencia";
 
             return View();
         }
-        [Authorize]
         [HttpPost]
-        public ActionResult Guardar(SubmitViewModel model)
+        public ActionResult Censo(SubmitViewModel model)
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            string mail = user.Email;
             BaseDeDatos db = new BaseDeDatos();
-            string sentencia = "UPDATE AspNetUsers SET Pais = " + model.PaisSeleccionado + ", Estado = " + model.EstadoSeleccionado + " WHERE Email = " + user.Email;
-            db.ExecQuery(sentencia);
-    //        model.PaisSeleccionado = ViewBag.Pais;
-    //        model.EstadoSeleccionado = ViewBag.Estado;
+            string sentencia = "UPDATE dbo.AspNetUsers SET Pais = '" + model.PaisSeleccionado + "', Estado = '" + model.EstadoSeleccionado + "' WHERE Email = '" + user.Email + "'";
 
+            db.ExecQuery(sentencia);
+            
+            return RedirectToAction("Guardar", "Home");
+        }
+        public ActionResult Guardar()
+        {
             return View();
         }
-
     }
 }

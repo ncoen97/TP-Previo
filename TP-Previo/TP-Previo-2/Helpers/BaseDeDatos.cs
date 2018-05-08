@@ -14,10 +14,16 @@ namespace TP_Previo_2.Helpers
         public List<string> cadenasExec;
 
         // Get Conexion
-        private void GetConexion()
+        private SqlConnection GetConexion()
         {
-            string connStr = "Data Source=(localdb)/MSSQLLocalDB;Initial Catalog=aspnet-TP-Previo-2-20180422024037;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            conexion = new SqlConnection(connStr);
+            SqlConnection conexion = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=aspnet-TP-Previo-2-20180422024037;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            return conexion;
+        }
+
+        // ExecQuery
+        public void ExecQuery(string sql)
+        {
+            SqlConnection conexion = this.GetConexion();
             try
             {
                 conexion.Open();
@@ -27,18 +33,9 @@ namespace TP_Previo_2.Helpers
             {
                 Console.WriteLine(ex.ToString());
             }
-        }
-
-        // ExecQuery
-        public void ExecQuery(string sql)
-        {
-            if (conexion == null)
-            {
-                this.GetConexion();
-            }
             try
             {
-                SqlCommand myCommand = new SqlCommand(sql, this.conexion);
+                SqlCommand myCommand = new SqlCommand(sql, conexion);
                 myCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -46,17 +43,25 @@ namespace TP_Previo_2.Helpers
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(sql);
             }
+            conexion.Close();
         }
 
         // ExecQuery Select
         public SqlDataReader ExecQuerySelect(string sql)
         {
-            if (conexion == null)
-                this.GetConexion();
-
+            SqlConnection conexion = this.GetConexion();
             try
             {
-                SqlCommand myCommand = new SqlCommand(sql, this.conexion);
+                conexion.Open();
+                // Perform database operations
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            try
+            {
+                SqlCommand myCommand = new SqlCommand(sql, conexion);
                 return myCommand.ExecuteReader();
             }
             catch (Exception ex)
@@ -65,6 +70,7 @@ namespace TP_Previo_2.Helpers
                 Console.WriteLine(sql);
                 return null;
             }
+            conexion.Close();
         }
         
     }

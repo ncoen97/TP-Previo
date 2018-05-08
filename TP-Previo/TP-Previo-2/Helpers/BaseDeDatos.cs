@@ -16,7 +16,7 @@ namespace TP_Previo_2.Helpers
         // Get Conexion
         private void GetConexion()
         {
-            string connStr = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=aspnet-TP-Previo-2-20180422024037;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connStr = "Data Source=(localdb)/MSSQLLocalDB;Initial Catalog=aspnet-TP-Previo-2-20180422024037;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             conexion = new SqlConnection(connStr);
             try
             {

@@ -12,13 +12,19 @@ namespace TP_Previo_2.Models
         [Required]
         [Display(Name = "PaisSeleccionado")]
         public string PaisSeleccionado { get; set; }
-        [Required]
+        /*[Required]
         [Display(Name = "EstadoSeleccionado")]
         public string EstadoSeleccionado { get; set; }
 
-        /*public void insertarPais(string pais)
+        public void insertarPais(string pais)
         {
             AspNetUsers;
         }*/
+    }
+    public class SubmitViewModel2 : ApplicationDbContext
+    {
+        [Required]
+        [Display(Name = "EstadoSeleccionado")]
+        public string EstadoSeleccionado { get; set; }
     }
 }

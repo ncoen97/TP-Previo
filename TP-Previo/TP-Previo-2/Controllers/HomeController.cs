@@ -47,21 +47,33 @@ namespace TP_Previo_2.Controllers
         [HttpGet]
         public ActionResult Censo()
         {
-            string id = "AR";
+          //  string id = "AR";
             List<string> ListaDeEstados = new List<string>();
             ViewBag.ListaDePaises = ObtenerPaises();
-            ViewBag.ListaDeEstados = ObtenerEstados(id);
+          //  ViewBag.ListaDeEstados = ObtenerEstados(id);
 
-            ViewBag.Message = "Ingrese su lugar de residencia";
+            ViewBag.Message = "Ingrese su pais de residencia";
 
             return View();
         }
         [HttpPost]
         public ActionResult Censo(SubmitViewModel model)
         {
+            return RedirectToAction("Censo2", "Home", new { id = model.PaisSeleccionado });
+        }
+        [HttpGet]
+        public ActionResult Censo2(string id)
+        {
+            ViewBag.Message = "Ingrese su estado";
+            ViewBag.ListaDeEstados = ObtenerEstados(id);
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Censo2(SubmitViewModel2 model, string id)
+        {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             BaseDeDatos db = new BaseDeDatos();
-            string sentencia = "UPDATE dbo.AspNetUsers SET Pais = '" + model.PaisSeleccionado + "', Estado = '" + model.EstadoSeleccionado + "' WHERE Email = '" + user.Email + "'";
+            string sentencia = "UPDATE dbo.AspNetUsers SET Pais = '" + id + "', Estado = '" + model.EstadoSeleccionado + "' WHERE Email = '" + user.Email + "'";
 
             db.ExecQuery(sentencia);
             

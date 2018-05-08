@@ -29,14 +29,30 @@ namespace TP_Previo_2.Helpers
             return lista;
         }
 
-        public List<string> ObtenerEstados(string id)
+        public List<string> ObtenerEstados(string PaisNombre)
         {
+            string id = EncontrarPais(PaisNombre);
             string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries/" + id;
             var json = new WebClient().DownloadString(sUrlRequest);
             PaisUnitario Pais = JsonConvert.DeserializeObject<PaisUnitario>(json);
             List<string> estados = FiltrarEstados(Pais);
       //   List<string> estados = new List<string>(new string[] { "BsAs", "Caba", "Cordoba" });
             return estados;
+        }
+        public String EncontrarPais(String PaisNombre)
+        {
+            string id = null;
+            string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries";
+            var json = new WebClient().DownloadString(sUrlRequest);
+            List<Pais> listaPaises = JsonConvert.DeserializeObject<List<Pais>>(json);
+            for (int i = 0; i < listaPaises.Count; i++)
+            {
+                if(listaPaises[i].GetName() == PaisNombre)
+                {
+                    id = listaPaises[i].GetId();
+                }
+            }
+            return id;
         }
         public List<string> FiltrarEstados(PaisUnitario Pais)
         {

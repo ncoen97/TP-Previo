@@ -20,5 +20,9 @@ namespace TP_Previo_2.Helpers
         {
             return name;
         }
+        public string GetId()
+        {
+            return id;
+        }
     }
 }

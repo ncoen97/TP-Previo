@@ -81,6 +81,8 @@ namespace TP_Previo_2.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    SignInManager.EscribirLog(model.Email);
+                        // Escribe nuevo loggin
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

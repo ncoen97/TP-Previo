@@ -5,12 +5,14 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using Newtonsoft.Json.Linq;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using TP_Previo_2.Models;
+using TP_Previo_2.Helpers;
 
 namespace TP_Previo_2
 {
@@ -105,6 +107,13 @@ namespace TP_Previo_2
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
+
+        public void EscribirLog(string Cuenta)
+        {
+            ApiHelper apiHelper = new ApiHelper();
+            apiHelper.EscribirLog(Cuenta);
+            
         }
     }
 }

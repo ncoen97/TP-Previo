@@ -1,0 +1,10 @@
+[
+  {
+    "Usuario": "asd@hotmail.com",
+    "LogTime": "09/05/2018 0:17:41"
+  },
+  {
+    "Usuario": "holaqtal@asd.com",
+    "LogTime": "09/05/2018 0:29:29"
+  }
+]

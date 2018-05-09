@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,25 @@ namespace TP_Previo_2.Helpers
 {
     public class ApiHelper
     {
+        public void EscribirLog(string Usuario)
+        {
+            DateTime Tiempo = DateTime.Now;
+            List<Log> Logs = ObtenerLogs();
+            Logs.Add(new Log() { Usuario = Usuario, LogTime = Tiempo.ToString() });
+            string json = JsonConvert.SerializeObject(Logs.ToArray(), Formatting.Indented);
+            System.IO.File.WriteAllText(@"C:\Users\Administrador\Desktop\Github\TP-Previo\TP-Previo\TP-Previo-2\Helpers\Log.txt", json);
+        }
+        public static List<Log> ObtenerLogs()
+        {
+            var json = File.ReadAllText(@"C:\Users\Administrador\Desktop\Github\TP-Previo\TP-Previo\TP-Previo-2\Helpers\Log.txt");
+            var jsonLogs = JsonConvert.DeserializeObject<List<LogJson>>(json);
+            List<Log> listaLogs = new List<Log>(jsonLogs.Count);
+            for (int i = 0; i < jsonLogs.Count; i++)
+            {
+                listaLogs.Add(new Log() { Usuario = jsonLogs[i].GetUsuario(), LogTime = jsonLogs[i].GetLog() });
+            }
+            return listaLogs;
+        }
         public List<string> ObtenerPaises()
         {
             string sUrlRequest = "https://api.mercadolibre.com/classified_locations/countries";

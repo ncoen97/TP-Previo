@@ -16,11 +16,11 @@ namespace TP_Previo_2.Helpers
             List<Log> Logs = ObtenerLogs();
             Logs.Add(new Log() { Usuario = Usuario, LogTime = Tiempo.ToString() });
             string json = JsonConvert.SerializeObject(Logs.ToArray(), Formatting.Indented);
-            System.IO.File.WriteAllText(@"C:\Users\Administrador\Desktop\Github\TP-Previo\TP-Previo\TP-Previo-2\Helpers\Log.txt", json);
+            System.IO.File.WriteAllText(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "Helpers/Log.txt"), json);
         }
         public List<Log> ObtenerLogs()
         {
-            var json = File.ReadAllText(@"C:\Users\Administrador\Desktop\Github\TP-Previo\TP-Previo\TP-Previo-2\Helpers\Log.txt");
+            var json = File.ReadAllText(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory.ToString(), "Helpers/Log.txt"));
             var jsonLogs = JsonConvert.DeserializeObject<List<LogJson>>(json);
             List<Log> listaLogs = new List<Log>(jsonLogs.Count);
             for (int i = 0; i < jsonLogs.Count; i++)

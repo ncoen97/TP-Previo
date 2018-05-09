@@ -20,9 +20,11 @@ namespace TP_Previo_2.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Login Logs:";
+            ApiHelper apiHelper = new ApiHelper();
+            var LogsHechos = apiHelper.ObtenerLogs();
 
-            return View();
+            return View(LogsHechos);
         }
 
         public List<SelectListItem> ObtenerPaises()

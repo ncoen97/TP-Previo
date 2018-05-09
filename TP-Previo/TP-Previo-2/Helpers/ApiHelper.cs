@@ -18,7 +18,7 @@ namespace TP_Previo_2.Helpers
             string json = JsonConvert.SerializeObject(Logs.ToArray(), Formatting.Indented);
             System.IO.File.WriteAllText(@"C:\Users\Administrador\Desktop\Github\TP-Previo\TP-Previo\TP-Previo-2\Helpers\Log.txt", json);
         }
-        public static List<Log> ObtenerLogs()
+        public List<Log> ObtenerLogs()
         {
             var json = File.ReadAllText(@"C:\Users\Administrador\Desktop\Github\TP-Previo\TP-Previo\TP-Previo-2\Helpers\Log.txt");
             var jsonLogs = JsonConvert.DeserializeObject<List<LogJson>>(json);

@@ -1,7 +1,18 @@
-﻿@{
+﻿@using TP_Previo_2.Models;
+@using TP_Previo_2.Helpers;
+
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Message</h2>
 
-<p>Use this area to provide additional information.</p>
+<hr />
+
+@foreach (var item in Model)
+{
+    <div>
+        @item.Usuario
+        @item.LogTime
+        <hr />
+    </div>
+}

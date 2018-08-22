@@ -8,11 +8,16 @@
     "LogTime": "09/05/2018 0:29:29"
   },
   {
+<<<<<<< HEAD
     "Usuario": "holaqtal@asd.com",
     "LogTime": "09/05/2018 2:56:32"
   },
   {
     "Usuario": "holaqtal@asd.com",
     "LogTime": "09/05/2018 3:00:56"
+=======
+    "Usuario": "admin@admin.com",
+    "LogTime": "09/05/2018 07:54:52 a.m."
+>>>>>>> 29d04788f5f9b4b550ce10bb09a2d6a496be8b0f
   }
 ]
